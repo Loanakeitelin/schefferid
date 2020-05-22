@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang=pt-BR>
+<meta charset="UTF-8">
+<html>
+    
+<head>
+    <title>Pastelaria Scheffer</title>   
+</head>
+<body>
+    
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- PASTÉIS DE DE CARNE -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------->
+<div>
+<h1 lang="pt-BR">Pastéis de Carne</h1>
+
+
+
+<!-- SELEÇÃO DOS SABORES -->
+<div style="visibility: hidden"> 
+<p></p>
+<p id="resultscarne"></p>
+
+</div>
+
+<select id="EscolheSaborCarne">
+    <option></option>
+    <option>*Carne*</option>
+    <option>*Carne com Queijo*</option>
+    <option>*Carne com Bacon*</option>
+    <option>*Carne com Calabresa*</option>
+</select>
+
+<script>
+function alterandolinksaborcarne() {
+    var resultscarne = document.getElementById("EscolheSaborCarne").value;
+	document.getElementById("resultscarne").innerHTML = resultscarne;
+	document.getElementById("ConcluirSaborCarne").href="https://api.whatsapp.com/send?phone=5547999877139&text=Pastel de%3A%20" + resultscarne;
+}		
+</script>
+<br>
+
+<!-- SELEÇÃO DA QUANTIDADE -->
+<div style="visibility: hidden"> 
+<p></p>
+<p id="resultqcarne"></p>
+
+</div>
+
+<select id="EscolheQuantidadeCarne">
+    <option></option>
+    <option>*1*</option>
+    <option>*2*</option>
+    <option>*3*</option>
+    <option>*4*</option>
+    <option>*5*</option>
+</select>
+
+<script>
+function alterandolinkquantidadecarne() {
+    var resultqcarne = document.getElementById("EscolheQuantidadeCarne").value;
+	document.getElementById("resultqcarne").innerHTML = resultqcarne;
+	document.getElementById("ConcluirQuantidadeCarne").href="https://api.whatsapp.com/send?phone=5547999877139&text=Quantidade%3A" + resultqcarne;
+}		
+</script>
+<br>
+
+<!-- FINALIZAR E ENVIAR PEDIDO -->
+<p></p>
+<p id="resultfcarne"></p>
+
+
+
+<script>
+    function alterandolinkfinalizarcarne() {
+        var resultfscarne = document.getElementById("EscolheSaborCarne").value
+        var resultfqcarne = document.getElementById("EscolheQuantidadeCarne").value
+        var resultfcarne = resultfscarne + resultfqcarne
+        document.getElementById("resultfcarne").innerHTML = resultfcarne
+        document.getElementById("Finalizarcarne").href="https://api.whatsapp.com/send?phone=5547999877139&text=Meu%20Pedido%3A%20" + resultfcarne;
+    }		
+    </script>
+    <a href="#" id="Finalizarcarne"></a>
+    <br>
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- PASTÉIS DE DE FRANGO -->
+<div>
+    <h1>Pastéis de Frango</h1>
+    
+    
+    
+    <!-- SELEÇÃO DOS SABORES -->
+    <div style="visibility: hidden"> 
+    <p></p>
+    <p id="resultsfrango"></p>
+    
+    </div>
+    
+    <select id="EscolheSaborFrango">
+        <option></option>
+        <option>*Frango*</option>
+        <option>*Frango com Catupiry*</option>
+        <option>*Frango com Bacon*</option>
+        <option>*Frango com Calabresa*</option>
+    </select>
+    
+    <script>
+    function alterandolinksaborfrango() {
+        var resultsfrango = document.getElementById("EscolheSaborFrango").value;
+        document.getElementById("resultsfrango").innerHTML = resultsfrango;
+        document.getElementById("ConcluirSaborFrango").href="https://api.whatsapp.com/send?phone=5547999877139&text=Pastel de%3A%20" + resultsfrango;
+    }		
+    </script>
+    <br>
+    
+    <!-- SELEÇÃO DA QUANTIDADE -->
+    <div style="visibility: hidden"> 
+    <p></p>
+    
+    </div>
+
+    <select id="EscolheQuantidadeFrango">
+        <option></option>
+        <option>*1*</option>
+        <option>*2*</option>
+        <option>*3*</option>
+        <option>*4*</option>
+        <option>*5*</option>
+    </select>
+
+    
+    <script>
+    function alterandolinkquantidadefrango() {
+        var resultqfrango = document.getElementById("EscolheQuantidadeFrango").value;
+        document.getElementById("resultqfrango").innerHTML = resultqfrango;
+        document.getElementById("ConcluirQuantidadeFrango").href="https://api.whatsapp.com/send?phone=5547999877139&text=Quantidade%3A" + resultqfrango;
+    }		
+    </script>
+    <br>
+    
+    <!-- FINALIZAR E ENVIAR PEDIDO -->
+    <p></p>
+    <p id="resultffrango"></p>
+    
+    
+    
+    <script>
+        function alterandolinkfinalizarfrango() {
+            var resultfsfrango = document.getElementById("EscolheSaborFrango").value
+            var resultfqfrango = document.getElementById("EscolheQuantidadeFrango").value
+            var resultffrango = resultfsfrango + resultfqfrango
+            document.getElementById("resultffrango").innerHTML = resultffrango
+            document.getElementById("Finalizarfrango").href="https://api.whatsapp.com/send?phone=5547999877139&text=Meu%20Pedido%3A%20" + resultffrango;
+        }		
+        </script>
+        <a href="#" id="Finalizarfrango"></a>
+        <br>
+    </div>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- ENVIAR PEDIDO COMPLETO -->
+<br>
+<h2>Extrato do Pedido</h2>
+    <p id="pedidocompleto">
+    </p>
+    
+    
+    <button onclick="reunindotudo()" type="button">Ver Extrato do Pedido</button>
+<script>
+    function reunindotudo() {
+        var item1 = document.getElementById("EscolheSaborCarne").value
+        var item2 = document.getElementById("EscolheQuantidadeCarne").value
+        var item3 = document.getElementById("EscolheSaborFrango").value;
+        var item4 = document.getElementById("EscolheQuantidadeFrango").value;
+        var pedidocompleto = item1 + item2 + item3 + item4
+        document.getElementById("pedidocompleto").innerHTML = pedidocompleto
+        document.getElementById("TudoReunido").href="https://api.whatsapp.com/send?phone=5547999877139&text=Meu%20Pedido%3A%20" + pedidocompleto;
+    }		
+    </script>
+    <br>
+    <br>
+    <a href="#" id="TudoReunido">Enviar Pedido Completo</a>
+
+
+</body>
+</html>
